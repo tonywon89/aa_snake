@@ -42,7 +42,7 @@ View.prototype.handleKeyEvent = function (pressedKey) {
 View.prototype.step = function () {
   if (this.board.snake.isOpposite(this.board.apple)){
     this.board.snake.eat(this.board.apple);
-    this.board.apple = [10, 10];
+    this.board.randomApple();
   } else {
     this.board.snake.move();
 

@@ -87,6 +87,9 @@ Board.prototype.isApple = function(coord){
   return coord[0] === this.apple[0] && coord[1] === this.apple[1];
 };
 
+Board.prototype.randomApple = function () {
+  this.apple = [Math.floor(Math.random() * 40), Math.floor(Math.random() * 40)];
+};
 
 
 module.exports = Board;

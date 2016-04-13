@@ -144,6 +144,9 @@
 	  return coord[0] === this.apple[0] && coord[1] === this.apple[1];
 	};
 
+	Board.prototype.randomApple = function () {
+	  this.apple = [Math.floor(Math.random() * 40), Math.floor(Math.random() * 40)];
+	};
 
 
 	module.exports = Board;
@@ -197,7 +200,7 @@
 	View.prototype.step = function () {
 	  if (this.board.snake.isOpposite(this.board.apple)){
 	    this.board.snake.eat(this.board.apple);
-	    this.board.apple = [10, 10];
+	    this.board.randomApple();
 	  } else {
 	    this.board.snake.move();
 
