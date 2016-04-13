@@ -41,8 +41,8 @@ ul {
   float: left;
   width: 40px;
   height: 40px;
-  border-right: 1px solid green;
-  border-bottom: 1px solid green;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 .grid {
@@ -50,6 +50,11 @@ ul {
   list-style-type: none;
   width: 401px;
   height: 401px;
-  border-top: 1px solid green;
-  border-left: 1px solid green;
+  background-color: gray;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+}
+
+.grid-box.snakey {
+  background-color: green;
 }

@@ -49,6 +49,12 @@ View.prototype.render = function () {
   for(var i = 0; i < 10; i++){
     for(var j = 0; j < 10; j++){
       var $li = $("<li>").addClass("grid-box");
+      console.log(this.board.snake.isSnakeSegment([i, j]));
+      if (this.board.snake.isSnakeSegment([i, j])) {
+        console.log("Adding snakey");
+        $li.addClass("snakey");
+      }
+
       $ul.append($li);
     }
   }

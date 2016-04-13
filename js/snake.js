@@ -11,6 +11,14 @@ Snake.prototype.equals = function(coord1, coord2){
   return coord1[0] === coord2[0] && coord1[1] === coord2[1];
 };
 
+Snake.prototype.isSnakeSegment = function(coord){
+  for (var i = 0; i < this.segments.length; i++) {
+    var seg = this.segments[i];
+    if(this.equals(seg, coord)) return true;
+  }
+  return false;
+};
+
 Snake.prototype.isOpposite = function(coord1, coord2){
 
 };

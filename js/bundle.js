@@ -68,6 +68,14 @@
 	  return coord1[0] === coord2[0] && coord1[1] === coord2[1];
 	};
 
+	Snake.prototype.isSnakeSegment = function(coord){
+	  for (var i = 0; i < this.segments.length; i++) {
+	    var seg = this.segments[i];
+	    if(this.equals(seg, coord)) return true;
+	  }
+	  return false;
+	};
+
 	Snake.prototype.isOpposite = function(coord1, coord2){
 
 	};
@@ -168,6 +176,12 @@
 	  for(var i = 0; i < 10; i++){
 	    for(var j = 0; j < 10; j++){
 	      var $li = $("<li>").addClass("grid-box");
+	      console.log(this.board.snake.isSnakeSegment([i, j]));
+	      if (this.board.snake.isSnakeSegment([i, j])) {
+	        console.log("Adding snakey");
+	        $li.addClass("snakey");
+	      }
+
 	      $ul.append($li);
 	    }
 	  }
