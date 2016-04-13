@@ -40,14 +40,20 @@ View.prototype.handleKeyEvent = function (pressedKey) {
 };
 
 View.prototype.step = function () {
-  this.board.snake.move();
-
-  if(this.board.snake.crashed()){
-    alert("You have crashed!");
-    clearInterval(this.interval);
+  if (this.board.snake.isOpposite(this.board.apple)){
+    this.board.snake.eat(this.board.apple);
+    this.board.apple = [10, 10];
   } else {
-    this.render();
+    this.board.snake.move();
+
+    if(this.board.snake.crashed()){
+      alert("You have crashed!");
+      clearInterval(this.interval);
+    } else {
+      this.render();
+    }
   }
+
 
 };
 

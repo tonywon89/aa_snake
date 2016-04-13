@@ -19,9 +19,30 @@ Snake.prototype.isSnakeSegment = function(coord){
   return false;
 };
 
-// Snake.prototype.isOpposite = function(coord1, coord2){
-//
-// };
+Snake.prototype.isOpposite = function(coord){
+  var head = this.segments[0];
+
+  var movement;
+  switch(this.direction){
+  case "N":
+    movement = [-1, 0];
+    break;
+  case "E":
+    movement = [0, 1];
+    break;
+  case "S":
+    movement = [1, 0];
+    break;
+  case "W":
+    movement = [0, -1];
+    break;
+  }
+
+  var opposite = this.plus(head, movement);
+
+  return this.equals(opposite, coord);
+
+};
 
 Snake.prototype.crashed = function(){
   return (this.segments[0][0] < 0 || this.segments[0][0] > 39 ||
@@ -53,14 +74,9 @@ Snake.prototype.turn = function (direction) {
   this.direction = direction;
 };
 
-// var snake = new Snake;
-// snake.move();
-// console.log(snake);
-// snake.turn("N");
-// console.log(snake);
-// snake.move();
-// console.log(snake);
-
+Snake.prototype.eat = function (apple) {
+  this.segments.unshift(apple);
+};
 
 function Board(){
   this.snake = new Snake;
@@ -70,5 +86,7 @@ function Board(){
 Board.prototype.isApple = function(coord){
   return coord[0] === this.apple[0] && coord[1] === this.apple[1];
 };
+
+
 
 module.exports = Board;
