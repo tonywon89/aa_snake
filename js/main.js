@@ -1,5 +1,5 @@
 var SnakeView = require("./view");
 
 $(function () {
-  // var view = new SnakeView();
+  var view = new SnakeView($("body"));
 });
