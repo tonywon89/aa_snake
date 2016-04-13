@@ -6,6 +6,8 @@ function View ($el){
 
   this.bindKeys();
   this.render();
+  // this.step();
+  setInterval(this.step.bind(this), 25);
 }
 
 View.prototype.bindKeys = function(){
@@ -33,9 +35,8 @@ View.prototype.handleKeyEvent = function (pressedKey) {
   }
 
   this.board.snake.turn(pressedKey);
-  // TODO remove this line after implementing elsewhere
-  this.board.snake.move();
-  console.log(this.board.snake.segments[0]);
+  console.log("It Turned: " + pressedKey);
+  // console.log(this.board.snake.segments[0]);
 };
 
 View.prototype.step = function () {
@@ -44,14 +45,14 @@ View.prototype.step = function () {
 };
 
 View.prototype.render = function () {
+  $("figure").empty();
   var $ul = $("<ul>").addClass("grid group");
 
-  for(var i = 0; i < 10; i++){
-    for(var j = 0; j < 10; j++){
+  for(var i = 0; i < 40; i++){
+    for(var j = 0; j < 40; j++){
       var $li = $("<li>").addClass("grid-box");
       console.log(this.board.snake.isSnakeSegment([i, j]));
       if (this.board.snake.isSnakeSegment([i, j])) {
-        console.log("Adding snakey");
         $li.addClass("snakey");
       }
 

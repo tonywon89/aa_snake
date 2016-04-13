@@ -27,16 +27,16 @@ Snake.prototype.move = function(){
   var movement;
   switch(this.direction){
   case "N":
-    movement = [0, 1];
+    movement = [-1, 0];
     break;
   case "E":
-    movement = [1, 0];
+    movement = [0, 1];
     break;
   case "S":
-    movement = [0, -1];
+    movement = [1, 0];
     break;
   case "W":
-    movement = [-1, 0];
+    movement = [0, -1];
     break;
   }
 
