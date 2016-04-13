@@ -7,7 +7,7 @@ function View ($el){
   this.bindKeys();
   this.render();
   // this.step();
-  setInterval(this.step.bind(this), 25);
+  this.interval = setInterval(this.step.bind(this), 25);
 }
 
 View.prototype.bindKeys = function(){
@@ -41,7 +41,14 @@ View.prototype.handleKeyEvent = function (pressedKey) {
 
 View.prototype.step = function () {
   this.board.snake.move();
-  this.render();
+
+  if(this.board.snake.crashed()){
+    alert("You have crashed!");
+    clearInterval(this.interval);
+  } else {
+    this.render();
+  }
+
 };
 
 View.prototype.render = function () {

@@ -19,8 +19,13 @@ Snake.prototype.isSnakeSegment = function(coord){
   return false;
 };
 
-Snake.prototype.isOpposite = function(coord1, coord2){
+// Snake.prototype.isOpposite = function(coord1, coord2){
+//
+// };
 
+Snake.prototype.crashed = function(){
+  return (this.segments[0][0] < 0 || this.segments[0][0] > 39 ||
+  this.segments[0][1] < 0 || this.segments[0][1] > 39);
 };
 
 Snake.prototype.move = function(){

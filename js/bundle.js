@@ -76,8 +76,13 @@
 	  return false;
 	};
 
-	Snake.prototype.isOpposite = function(coord1, coord2){
+	// Snake.prototype.isOpposite = function(coord1, coord2){
+	//
+	// };
 
+	Snake.prototype.crashed = function(){
+	  return (this.segments[0][0] < 0 || this.segments[0][0] > 39 ||
+	  this.segments[0][1] < 0 || this.segments[0][1] > 39);
 	};
 
 	Snake.prototype.move = function(){
@@ -134,7 +139,7 @@
 	  this.bindKeys();
 	  this.render();
 	  // this.step();
-	  setInterval(this.step.bind(this), 25);
+	  this.interval = setInterval(this.step.bind(this), 25);
 	}
 
 	View.prototype.bindKeys = function(){
@@ -168,7 +173,14 @@
 
 	View.prototype.step = function () {
 	  this.board.snake.move();
-	  this.render();
+
+	  if(this.board.snake.crashed()){
+	    alert("You have crashed!");
+	    clearInterval(this.interval);
+	  } else {
+	    this.render();
+	  }
+
 	};
 
 	View.prototype.render = function () {
