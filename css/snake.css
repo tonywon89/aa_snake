@@ -58,3 +58,7 @@ ul {
 .grid-box.snakey {
   background-color: green;
 }
+
+.grid-box.apple {
+  background-color: red;
+}

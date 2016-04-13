@@ -64,6 +64,11 @@ Snake.prototype.turn = function (direction) {
 
 function Board(){
   this.snake = new Snake;
+  this.apple = [20, 20];
 }
+
+Board.prototype.isApple = function(coord){
+  return coord[0] === this.apple[0] && coord[1] === this.apple[1];
+};
 
 module.exports = Board;

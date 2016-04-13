@@ -58,11 +58,14 @@ View.prototype.render = function () {
   for(var i = 0; i < 40; i++){
     for(var j = 0; j < 40; j++){
       var $li = $("<li>").addClass("grid-box");
-      console.log(this.board.snake.isSnakeSegment([i, j]));
+
+      if(this.board.isApple([i, j])) {
+        $li.addClass("apple");
+      }
+
       if (this.board.snake.isSnakeSegment([i, j])) {
         $li.addClass("snakey");
       }
-
       $ul.append($li);
     }
   }
