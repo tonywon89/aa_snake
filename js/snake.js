@@ -1,6 +1,6 @@
 function Snake(){
   this.direction = "E";
-  this.segments = [[1,1], [1,2], [1,3]];
+  this.segments = [[1,1]];
 }
 
 Snake.prototype.plus = function(coord1, coord2){
@@ -32,17 +32,25 @@ Snake.prototype.move = function(){
     break;
   }
 
-  this.segments.pop();
   this.segments.unshift(this.plus(movement, this.segments[0]));
+  this.segments.pop();
 };
 
 Snake.prototype.turn = function (direction) {
   this.direction = direction;
 };
 
+// var snake = new Snake;
+// snake.move();
+// console.log(snake);
+// snake.turn("N");
+// console.log(snake);
+// snake.move();
+// console.log(snake);
+
 
 function Board(){
-
+  this.snake = new Snake;
 }
 
 module.exports = Board;
