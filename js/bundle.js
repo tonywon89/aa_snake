@@ -144,6 +144,10 @@
 	  this.segments.unshift(apple);
 	};
 
+	Snake.prototype.isHead = function(coord) {
+	  return this.equals(this.segments[0], coord);
+	};
+
 	function Board(){
 	  this.snake = new Snake;
 	  this.apple = [20, 20];
@@ -242,6 +246,9 @@
 
 	      if (this.board.snake.isSnakeSegment([i, j])) {
 	        $li.addClass("snakey");
+	        if (this.board.snake.isHead([i, j])) {
+	          $li.addClass("head");
+	        }
 	      }
 	      $ul.append($li);
 	    }

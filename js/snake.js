@@ -87,6 +87,10 @@ Snake.prototype.eat = function (apple) {
   this.segments.unshift(apple);
 };
 
+Snake.prototype.isHead = function(coord) {
+  return this.equals(this.segments[0], coord);
+};
+
 function Board(){
   this.snake = new Snake;
   this.apple = [20, 20];

@@ -72,6 +72,9 @@ View.prototype.render = function () {
 
       if (this.board.snake.isSnakeSegment([i, j])) {
         $li.addClass("snakey");
+        if (this.board.snake.isHead([i, j])) {
+          $li.addClass("head");
+        }
       }
       $ul.append($li);
     }
