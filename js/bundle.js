@@ -103,7 +103,16 @@
 
 	Snake.prototype.crashed = function(){
 	  return (this.segments[0][0] < 0 || this.segments[0][0] > 39 ||
-	  this.segments[0][1] < 0 || this.segments[0][1] > 39);
+	      this.segments[0][1] < 0 || this.segments[0][1] > 39) || this.overlap();
+	};
+
+	Snake.prototype.overlap = function () {
+	  for (var i = 0; i < this.segments.length; i++) {
+	    for (var j = i + 1; j < this.segments.length; j++) {
+	      if (this.equals(this.segments[i], this.segments[j])) return true;
+	    }
+	  }
+	  return false;
 	};
 
 	Snake.prototype.move = function(){
