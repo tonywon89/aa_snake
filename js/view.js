@@ -47,7 +47,8 @@ View.prototype.step = function () {
     this.board.snake.move();
 
     if(this.board.snake.crashed()){
-      alert("You have crashed!");
+      var $p = $("<p>").text("You have crashed").addClass("losing-message");
+      $('.grid').append($p);
       clearInterval(this.interval);
     } else {
       this.render();
@@ -76,7 +77,8 @@ View.prototype.render = function () {
     }
   }
 
-  $(".snake-game").append($ul);
+  var $score = $("<p>").addClass("score").text("Score: " + this.board.score());
+  $(".snake-game").append($ul).append($score);
 };
 
 

@@ -23,6 +23,11 @@ body {
 ul {
   list-style-type: none;
 }
+
+h1 {
+  text-align: center;
+  font-size: 50px;
+}
 .group:after {
   content: "";
   display: block;
@@ -37,6 +42,7 @@ ul {
 }
 
 .grid-box {
+  position: relative;
   box-sizing: border-box;
   float: left;
   width: 10px;
@@ -61,4 +67,16 @@ ul {
 
 .grid-box.apple {
   background-color: red;
+}
+
+.losing-message {
+  position: absolute;
+  top: 150px;
+  left: 850px;
+  font-size: 30px;
+}
+
+.score {
+  font-size: 20px;
+  text-align: center;
 }

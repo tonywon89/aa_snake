@@ -157,6 +157,9 @@
 	  this.apple = [Math.floor(Math.random() * 40), Math.floor(Math.random() * 40)];
 	};
 
+	Board.prototype.score = function(){
+	  return this.snake.segments.length - 1;
+	};
 
 	module.exports = Board;
 
@@ -214,7 +217,8 @@
 	    this.board.snake.move();
 
 	    if(this.board.snake.crashed()){
-	      alert("You have crashed!");
+	      var $p = $("<p>").text("You have crashed").addClass("losing-message");
+	      $('.grid').append($p);
 	      clearInterval(this.interval);
 	    } else {
 	      this.render();
@@ -243,7 +247,8 @@
 	    }
 	  }
 
-	  $(".snake-game").append($ul);
+	  var $score = $("<p>").addClass("score").text("Score: " + this.board.score());
+	  $(".snake-game").append($ul).append($score);
 	};
 
 

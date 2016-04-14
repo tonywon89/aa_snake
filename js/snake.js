@@ -100,5 +100,8 @@ Board.prototype.randomApple = function () {
   this.apple = [Math.floor(Math.random() * 40), Math.floor(Math.random() * 40)];
 };
 
+Board.prototype.score = function(){
+  return this.snake.segments.length - 1;
+};
 
 module.exports = Board;
